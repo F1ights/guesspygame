@@ -59,7 +59,7 @@
 <body>
 
 <h1>🎮 Python Guessing Game</h1>
-<p>Guess a number between 1 and 10</p>
+<p>Guess a number between 1 and 50</p>
 
 <input type="number" id="guess" placeholder="Enter number">
 <button py-click="check_guess">Guess</button>
@@ -70,7 +70,7 @@
 from random import randint
 from pyscript import document
 
-secret = randint(1, 10)
+secret = randint(1, 50)
 
 def check_guess(event):
     guess_input = document.getElementById("guess").value
