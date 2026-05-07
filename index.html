@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Guessing Game</title>
+
+    <link rel="stylesheet"
+          href="https://pyscript.net/latest/pyscript.css" />
+
+    <script defer
+            src="https://pyscript.net/latest/pyscript.js">
+    </script>
+
+    <style>
+        body {
+            background: #222;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🎮 Python Guessing Game</h1>
+<p>Guess a number between 1 and 10</p>
+
+<input type="number" id="guess">
+<button py-click="check_guess()">Guess</button>
+
+<div id="output"></div>
+
+<py-script>
+from random import randint
+from pyscript import document
+
+secret = randint(1, 10)
+
+def check_guess():
+    guess_input = document.getElementById("guess").value
+    output = document.getElementById("output")
+
+    if guess_input == "":
+        output.innerHTML = "⚠ Enter a number!"
+        return
+
+    guess = int(guess_input)
+
+    if guess == secret:
+        output.innerHTML = "🎉 Correct! You win!"
+    elif guess < secret:
+        output.innerHTML = "📉 Too low!"
+    else:
+        output.innerHTML = "📈 Too high!"
+</py-script>
+
+</body>
+</html>
